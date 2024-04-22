@@ -27,7 +27,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "cd scripts/ && mvn clean package"
+                    sh "mvn clean package"
                     sh "sudo docker build -t 'vigneshv04/springboot-app:${version}' ."
                 }
             }
