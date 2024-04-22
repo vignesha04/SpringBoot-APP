@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   name: springboot-deployment
+  namespace: springboot
 spec:
   selector:
     matchLabels:
@@ -26,11 +27,12 @@ metadata:
   name: springboot-app
   namespace: springboot
 spec:
+  selector:
+  name: springboot-app
   type: NodePort 
   ports:
   - port: 8080
     targetPort: 3100
     nodePort: 30008
     protocol: TCP
-  selector:
-    role: backend
+ 
